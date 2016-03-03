@@ -92,7 +92,7 @@ public var UserSex: String = "帅哥"
 
 public let MyIntroduce: String = "  你好，我是ManoBoo\n很高兴能在这里遇到你😊,遇到什么问题或者bug您可以联系我的QQ、微博及简书,Boo诚意敬上~~"
 public let JianShuURL: String = "http://www.jianshu.com/p/7b57eb0c4abe"
-public let GitHubURL: String = "http://www.baidu.com"
+public let GitHubURL: String = "https://github.com/jiachenmu/Swift-BanTang"
 public let SinaWeiBoURL: String = "http://weibo.com/u/3484140182"
 public let ShareTitle: String = "Swift开源项目-高仿半糖APP"
 public let ShareSubTitle: String = "ManoBoo非常感谢您的分享，喜欢的童鞋点一点star啦😘"

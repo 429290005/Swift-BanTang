@@ -17,7 +17,7 @@ class SettingViewController: BaseViewController ,UITableViewDelegate,UITableView
     
     private let cellID = "SettingCell"
     
-    private let tableViewData = ["分享我的 APP👍","联系我的简书","微博:木木281","GitHub:","关于作者"]
+    private let tableViewData = ["分享我的 APP👍","联系我的简书","微博:木木281","GitHub:点击查看我的GitHub","关于作者"]
     private let iconData = [UIImage(named: "Share_fire"),UIImage(named: "iconfont-jian"),UIImage(named: "iconfont-weiBo"),UIImage(named: "iconfont-github"),UIImage(named: "iconfont-ren")]
     
     
