@@ -303,7 +303,7 @@
 		46E2F7AE1C5F539A00E16D85 /* SingleGoodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleGoodsViewController.swift; sourceTree = "<group>"; };
 		46E2F7B01C5F60E200E16D85 /* SingleGoodsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleGoodsCell.swift; sourceTree = "<group>"; };
 		46E2F7B31C5F62DD00E16D85 /* 底妆 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "底妆"; sourceTree = "<group>"; };
-		46E2F7B61C603CC000E16D85 /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
+		46E2F7B61C603CC000E16D85 /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = text; path = .DS_Store; sourceTree = "<group>"; };
 		46E2F7B71C603CC000E16D85 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		46E2F7B81C603CC000E16D85 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		46E2F7B91C603CC000E16D85 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
@@ -1486,7 +1486,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) CVS .svn .git .hg *.pbproj *.pbxproj *.DS_Store";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) CVS .svn .git .hg *.pbproj *.pbxproj";
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
 				INFOPLIST_FILE = BeautifulDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1510,7 +1510,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) CVS .svn .git .hg *.pbproj *.pbxproj *.DS_Store";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) CVS .svn .git .hg *.pbproj *.pbxproj";
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
 				INFOPLIST_FILE = BeautifulDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
