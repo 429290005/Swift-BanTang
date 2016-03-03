@@ -56,6 +56,19 @@
 ##我的新浪微博
 [点击进入新浪微博，交个朋友也好🙉](http://weibo.com/u/3484140182
 )
+##我的工作QQ：1691919529
+大家有什么问题可以加我的QQ联系，简书、微博都可以
+##收到有童鞋反应说，会遇到这样的Bug导致无法运行
+![tmp788532b0.png](http://upload-images.jianshu.io/upload_images/1299512-767663cc96358060.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+Tips：由于GitHub上传的问题，解决办法如下：
+
+![tmp40f00220.png](http://upload-images.jianshu.io/upload_images/1299512-f572f94a1b4bacb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+将 .DS_Store文件(该文件是个隐藏文件，先显示出来) 制到 UMSocial_Sdk_4.4目录下
+![tmp1dfbd69a.png](http://upload-images.jianshu.io/upload_images/1299512-2dadffe1da5ac283.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+##因为GItHub的问题，我在百度云网盘放了一份代码，可以运行，也可以去百度云网盘下载哦
+[点击去ManoBoo的百度云](http://pan.baidu.com/s/1c1qoK5i)
 
 ##### 欢迎关注ManoBoo
 
