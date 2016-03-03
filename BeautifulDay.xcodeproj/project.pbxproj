@@ -1487,7 +1487,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) CVS .svn .git .hg *.pbproj *.pbxproj";
-				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = .DS_Store;
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.DS_Store";
 				INFOPLIST_FILE = BeautifulDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1511,7 +1511,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* *.xcassets (*) CVS .svn .git .hg *.pbproj *.pbxproj";
-				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = .DS_Store;
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.DS_Store";
 				INFOPLIST_FILE = BeautifulDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
