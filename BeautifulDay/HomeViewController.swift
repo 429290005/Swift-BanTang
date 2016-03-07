@@ -252,7 +252,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                     
                 }
                 
-                showCollectionView!.center = CGPointMake(showCollectionView!.center.x, showCollectionView!.center.y - scrollView.contentOffset.y)
+//                showCollectionView!.center = CGPointMake(showCollectionView!.center.x, showCollectionView!.center.y - scrollView.contentOffset.y)
+                showCollectionView.frame = CGRectMake(0, showCollectionView.frame.origin.y - scrollView.contentOffset.y, SCREEN_WIDTH, SCREEN_HEIGHT)
                 headView.center = CGPointMake(SCREEN_WIDTH/2, headView.center.y-scrollView.contentOffset.y)
                 if(headView.frame.origin.y < -257+64)
                 {
