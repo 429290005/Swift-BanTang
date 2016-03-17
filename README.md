@@ -1,6 +1,9 @@
 # Swift-BanTang
 这个开源项目为半糖，[官网➡](http://www.ibantang.com),类似于美丽说，一款电商App，使用语言:Swift2.0,开发工具: Xcode 7.1,纯代码开发,耗时两个多月，数据为本地数据，用Charles进行抓包
 #IOS-Swift2.0 高仿半糖App
+####Update 1.0.1 小更新
+######首页修改为渐变效果 ，ShowMeController打开相册不在崩溃
+
 ***
 ##收到有童鞋反应说，会遇到这样的Bug导致无法运行
 ![tmp788532b0.png](http://upload-images.jianshu.io/upload_images/1299512-767663cc96358060.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
