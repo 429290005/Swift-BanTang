@@ -10,12 +10,11 @@
 
 Tips：由于GitHub上传的问题，解决办法如下：
 
-![tmp40f00220.png](http://upload-images.jianshu.io/upload_images/1299512-f572f94a1b4bacb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-将 .DS_Store文件(该文件是个隐藏文件，先显示出来) 制到 UMSocial_Sdk_4.4目录下
-![tmp1dfbd69a.png](http://upload-images.jianshu.io/upload_images/1299512-2dadffe1da5ac283.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![tmp44a0f1ff.png](http://upload-images.jianshu.io/upload_images/1299512-ff192623db0d0fd8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ##因为GItHub的问题，我在百度云网盘放了一份代码，可以运行，也可以去百度云网盘下载哦
-[点击去ManoBoo的百度云](http://pan.baidu.com/s/1c1qoK5i)
+[点击去ManoBoo的百度云](http://pan.baidu.com/s/1boio8Tx)
 
 ##写在前面的话
 --少年我是去年毕业做IOS开发的，这个项目大概是2016年1月份到现在做完的，项目刚开始没学过Swift语言，但想着不会就该去挑战，于是边学习边做这个项目，现在对Swift也有了一定的了解
