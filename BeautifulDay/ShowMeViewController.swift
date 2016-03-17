@@ -13,10 +13,10 @@ import Photos
 class ShowMeViewController: BaseViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
    
     //当前 collectionView 用到的 PHAssetCollection
-    private var currentPhotoData = PHFetchResult()
+    private var currentPhotoData: PHFetchResult?
     
     //相机管理类
-    private var imageManger = PHCachingImageManager()
+    private var imageManger: PHCachingImageManager?
     
     //展示图片 collectionView
     private var showCollectionView: UICollectionView?
@@ -25,31 +25,35 @@ class ShowMeViewController: BaseViewController ,UICollectionViewDelegate,UIColle
         super.viewDidLoad()
         
         readImagesFromPhone()
-        
-        buildCollectionView()
+
     }
 
     //MARK: 获取相册数据
     func readImagesFromPhone() {
-        // 列出所有的智能相册
-        let smartAlbums = PHAssetCollection.fetchAssetCollectionsWithType(PHAssetCollectionType.SmartAlbum, subtype: PHAssetCollectionSubtype.AlbumRegular, options: nil)
-        
-        
-        
-        imageManger = PHCachingImageManager()
-        let options = PHFetchOptions()
-        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-
-        //currentPhotoData 只会获取到 '相机胶卷'中的照片
-        for var i = 0 ; i < smartAlbums.count ; i++ {
-            print(smartAlbums[i].localizedTitle)
-            if smartAlbums[i].localizedTitle == "相机胶卷" || smartAlbums[i].localizedTitle == "Camera Roll"{
-                currentPhotoData = PHAsset.fetchAssetsInAssetCollection(smartAlbums[i] as! PHAssetCollection , options: options)
+        //首先获取用户权限
+        let author = PHPhotoLibrary.authorizationStatus()
+        if author == .Restricted || author == .Denied || author == .NotDetermined{
+            //没有权限 提示用户在设置中获取权限
+            TipView.showMessage("都没有权限，你瞅啥~😂,去设置给我权限啊",duration: 4.0)
+            
+        }else if author == .Authorized{
+            // 列出所有的智能相册
+            let smartAlbums = PHAssetCollection.fetchAssetCollectionsWithType(PHAssetCollectionType.SmartAlbum, subtype: PHAssetCollectionSubtype.AlbumRegular, options: nil)
+            imageManger = PHCachingImageManager()
+            let options = PHFetchOptions()
+            options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+            
+            //currentPhotoData 只会获取到 '相机胶卷'中的照片
+            for var i = 0 ; i < smartAlbums.count ; i++ {
+                print(smartAlbums[i].localizedTitle)
+                if smartAlbums[i].localizedTitle == "相机胶卷" || smartAlbums[i].localizedTitle == "Camera Roll"{
+                    currentPhotoData = PHAsset.fetchAssetsInAssetCollection(smartAlbums[i] as! PHAssetCollection , options: options)
+                }
             }
+            buildCollectionView()
         }
     }
-    
-    
+
     //MARK: build collectionView
     func buildCollectionView() {
         let layout = UICollectionViewFlowLayout.init()
@@ -71,7 +75,10 @@ class ShowMeViewController: BaseViewController ,UICollectionViewDelegate,UIColle
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1 + currentPhotoData.count
+        if currentPhotoData != nil && currentPhotoData?.count > 0 {
+            return 1 + currentPhotoData!.count
+        }
+        return 1
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -79,9 +86,9 @@ class ShowMeViewController: BaseViewController ,UICollectionViewDelegate,UIColle
 
         let cell = ShowMeCell.cell(collectionView, indexPath: indexPath, displayImage: nil)
         if indexPath.row != 0 {
-            let assets = currentPhotoData[indexPath.row - 1]
+            let assets = currentPhotoData![indexPath.row - 1]
             
-            imageManger.requestImageForAsset(assets as! PHAsset, targetSize: CGSizeMake(103, 103), contentMode: .AspectFit, options: nil) { (image, array) -> Void in
+            imageManger!.requestImageForAsset(assets as! PHAsset, targetSize: CGSizeMake(103, 103), contentMode: .AspectFit, options: nil) { (image, array) -> Void in
                 cell.image = image
             }
         }else {

@@ -138,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate
     func presentShowMeViewController(viewController:UIViewController) {
         let showMeVC = ShowMeViewController.init(leftTitle: "取消", rightTitle: "")
         let nav = BaseNavigationController(rootViewController: showMeVC)
-        viewController.presentViewController(nav, animated: true, completion: nil)
+        tabbarController.presentViewController(nav, animated: true, completion: nil)
     }
 //MARK: 公共配置
     func configure()
