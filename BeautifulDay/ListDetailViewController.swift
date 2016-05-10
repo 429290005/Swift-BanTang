@@ -75,6 +75,7 @@ class ListDetailViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
+        self.automaticallyAdjustsScrollViewInsets = false
         
         //创建导航栏
         createCustomBar()
@@ -87,7 +88,7 @@ class ListDetailViewController: UIViewController,
         {
             buildHeadView()
             
-            buildSegmentView()
+//            buildSegmentView()
             
             buildTableView()
         }else{
@@ -222,16 +223,18 @@ class ListDetailViewController: UIViewController,
     func buildHeadView()
     {
         headView = ListDetailHeadView.init(title: listModel!.title!, subTitle: listModel!.detailText!, image: image)
-        self.view.addSubview(headView)
         
-        view.bringSubviewToFront(navBackView)
-        view.bringSubviewToFront(customBar)
+        self.buildSegmentView()
+        
+        var frame = headView.frame
+        frame.size.height += 45
+        headView.frame = frame
     }
     
     func buildSegmentView(){
         segmentView = SegmentView.init(frame: CGRectMake(0, headView.frame.size.height, SCREEN_WIDTH, 45), firstTitle: "半糖精选", secondTitle: "用户推荐")
         segmentView.delegate = self
-        view.addSubview(segmentView)
+        headView.addSubview(segmentView)
     }
     //MARK:--SegmentViewDelegate
     func clickSegmentView(clickIndex: Int) {
@@ -249,11 +252,15 @@ class ListDetailViewController: UIViewController,
 //MARK:创建tableview
     func buildTableView()
     {
-        banTangView = UITableView.init(frame: CGRectMake(0,CGRectGetMaxY(segmentView.frame), SCREEN_WIDTH, SCREEN_HEIGHT), style: .Plain)
-        banTangView.contentInset = UIEdgeInsetsMake(0, 0, 64+44, 0)
+
+        banTangView = UITableView.init(frame: CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT), style: .Plain)
         banTangView.delegate = self
         banTangView.dataSource = self
+        
+        banTangView.tableHeaderView = headView
         view.addSubview(banTangView)
+        view.bringSubviewToFront(navBackView)
+        view.bringSubviewToFront(customBar)
     }
 }
 //MARK: UITableViewDelegate,UITableViewDataSource
@@ -399,8 +406,6 @@ extension ListDetailViewController:UITableViewDelegate,UITableViewDataSource
         let nav = BaseNavigationController.init(rootViewController: createFavoriteVC)
         
         navigationController!.presentViewController(nav, animated: true, completion: nil)
-//        navigationController?.pushViewController(createFavoriteVC, animated: true)
-        
     }
     
     //用户推荐 cell.delegate
@@ -438,14 +443,8 @@ extension ListDetailViewController:UITableViewDelegate,UITableViewDataSource
         default:
             break
         }
-
-    
-    
-    
     }
-    
 }
-
 
 
 //MARK: UIScrollViewDelegate
@@ -453,11 +452,21 @@ extension ListDetailViewController:UIScrollViewDelegate
 {
     func scrollViewDidScroll(scrollView: UIScrollView) {
 
-        if(headView.frame.origin.y == -headView.frame.size.height+64)
-        {
-            navBackView.backgroundColor = CustomBarTintColor
+        // 半糖精选 || 用户推荐
+        if scrollView.contentOffset.y >= headView.frame.height - 64 - 45 {
+            //向上滑动 segmentView 漂移到 导航栏下方的时候  将segmentView 从headView上移除  添加到 self.view上
+            if !view.subviews.contains(segmentView) {
+                segmentView.removeFromSuperview()
+                segmentView.frame = CGRectMake(0, 64, SCREEN_WIDTH, 45)
+                view.addSubview(segmentView)
+                view.bringSubviewToFront(segmentView)
+            }
+        }else if scrollView.contentOffset.y < headView.frame.height - 64 - 45 {
+            if !headView.subviews.contains(segmentView) {
+                segmentView.frame = CGRectMake(0, headView.frame.height - 45, SCREEN_WIDTH, 45)
+                headView.addSubview(segmentView)
+            }
         }
-        
         
         //向上滑动
         if(scrollView.contentOffset.y > 0 && headView.frame.origin.y > -headView.frame.size.height + 64)
@@ -468,41 +477,11 @@ extension ListDetailViewController:UIScrollViewDelegate
                 navBackView.backgroundColor = UIColor.init(hexString: "EC5252", alpha: (scrollView.contentOffset.y) / 32 )
             }
             
-            
-            scrollView.center = CGPointMake(SCREEN_WIDTH/2, scrollView.center.y - scrollView.contentOffset.y)
-            headView.center = CGPointMake(SCREEN_WIDTH/2, headView.center.y - scrollView.contentOffset.y)
-            segmentView.frame = CGRectMake(0, headView.frame.origin.y+headView.frame.size.height, SCREEN_WIDTH, 45)
-            
-            //防止tableview拖动太快导致 顶部进入导航栏范围
-            if(headView.frame.origin.y < -headView.frame.size.height+64)
-            {
-                headView.frame = CGRectMake(0, -headView.frame.size.height+64, SCREEN_WIDTH, headView.frame.size.height)
-                segmentView.frame = CGRectMake(0, headView.frame.origin.y+headView.frame.size.height, SCREEN_WIDTH, 45)
-                scrollView.frame = CGRectMake(0, CGRectGetMaxY(segmentView.frame), SCREEN_WIDTH, SCREEN_HEIGHT)
-            }
-        
         }else if(scrollView.contentOffset.y < 0 && headView.frame.origin.y <= 0)
         {
             if(-scrollView.contentOffset.y/32 < 1.0 )
             {
                 navBackView.backgroundColor = UIColor.init(hexString: "EC5252", alpha: (scrollView.contentOffset.y) / 32 )
-            }
-            
-        
-            scrollView.center = CGPointMake(SCREEN_WIDTH/2, scrollView.center.y - scrollView.contentOffset.y)
-            headView.center = CGPointMake(SCREEN_WIDTH/2, headView.center.y - scrollView.contentOffset.y)
-            segmentView.frame = CGRectMake(0, headView.frame.origin.y+headView.frame.size.height, SCREEN_WIDTH, 45)
-            
-            //防止tableview拖动太快 导致上面显示空白
-            if(headView.frame.origin.y > 0)
-            {
-                weak var weakSelf = self
-                
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    weakSelf?.headView.frame = CGRectMake(0, 0,SCREEN_WIDTH, weakSelf!.headView.frame.size.height)
-                    weakSelf!.segmentView.frame = CGRectMake(0, weakSelf!.headView.frame.origin.y+weakSelf!.headView.frame.size.height, SCREEN_WIDTH, 45)
-                    scrollView.frame = CGRectMake(0, CGRectGetMaxY(weakSelf!.segmentView.frame), SCREEN_WIDTH, SCREEN_HEIGHT)
-                    })
             }
         }
     }

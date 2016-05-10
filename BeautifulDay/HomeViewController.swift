@@ -193,11 +193,7 @@ class HomeViewController: UIViewController,TitleViewDelegate,BannerViewDelegate 
         showCollectionView?.delegate = self
         showCollectionView?.dataSource = self
         self.view.addSubview(showCollectionView!)
-        
-        
-        
-//        showCollectionView = UICollectionView.init(frame: CGRectMake(0, 586/2, SCREEN_WIDTH, SCREEN_HEIGHT), collectionViewLayout: <#T##UICollectionViewLayout#>)
-    
+
     }
     
     
@@ -252,7 +248,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                     
                 }
                 
-//                showCollectionView!.center = CGPointMake(showCollectionView!.center.x, showCollectionView!.center.y - scrollView.contentOffset.y)
                 showCollectionView.frame = CGRectMake(0, showCollectionView.frame.origin.y - scrollView.contentOffset.y, SCREEN_WIDTH, SCREEN_HEIGHT)
                 headView.center = CGPointMake(SCREEN_WIDTH/2, headView.center.y-scrollView.contentOffset.y)
                 if(headView.frame.origin.y < -257+64)
