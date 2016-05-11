@@ -53,8 +53,6 @@ class SearchViewController: UIViewController,UICollectionViewDataSource,UICollec
         buildSegmentView()
         
         buildCollectionView()
-        
-      
     }
 
     override func didReceiveMemoryWarning() {
@@ -210,7 +208,6 @@ class SearchViewController: UIViewController,UICollectionViewDataSource,UICollec
 
     //MARK:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout
     
-    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(collectionView == singleCollectionView)
         {
@@ -246,8 +243,6 @@ class SearchViewController: UIViewController,UICollectionViewDataSource,UICollec
         }
         return 2
     }
-    
-    
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
