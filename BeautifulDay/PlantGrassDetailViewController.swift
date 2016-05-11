@@ -91,7 +91,6 @@ class PlantGrassDetailViewController: UIViewController ,UITableViewDataSource,UI
         navigationController?.popViewControllerAnimated(true)
     }
 
-    
     //MARK: build ImgView
     func buildImgVIew() {
         imgView = UIImageView.init(frame: CGRectMake(0, 0, SCREEN_WIDTH, 520/2))
@@ -192,7 +191,6 @@ class PlantGrassDetailViewController: UIViewController ,UITableViewDataSource,UI
     func clickSegmentView(clickIndex: Int) {
         if clickIndex == 2 {
             TipView.showMessage("最近发布木有抓取数据☆😅")
-            
         }
     }
     
@@ -273,7 +271,6 @@ class PlantGrassDetailViewController: UIViewController ,UITableViewDataSource,UI
                 imgView.layer.zPosition = 2.0
                 customBar.layer.zPosition = 3.0
             }
-            
         }
     }
     

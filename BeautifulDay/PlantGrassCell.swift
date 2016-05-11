@@ -31,7 +31,6 @@ class PlantGrassCell: UICollectionViewCell {
         }
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildUI()
@@ -68,9 +67,6 @@ class PlantGrassCell: UICollectionViewCell {
         cell.model = model
         
         return cell
-    
-        
-    
     }
     
 }

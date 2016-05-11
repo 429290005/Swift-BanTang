@@ -24,8 +24,6 @@ class SignInViewController: BaseViewController {
     /// 我的积分
     var myScoreLabel: UILabel?
     
-       
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +37,6 @@ class SignInViewController: BaseViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
     
     func buildUI() {
         imgView = UIImageView.init(frame: CGRectMake(5, 5, SCREEN_WIDTH - 10, SCREEN_WIDTH - 10))
@@ -82,5 +79,4 @@ class SignInViewController: BaseViewController {
         myScoreLabel?.attributedText = attributeStr
         scoreView?.addSubview(myScoreLabel!)
     }
-    
 }

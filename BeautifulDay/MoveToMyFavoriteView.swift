@@ -36,7 +36,6 @@ class MoveToMyFavoriteView: UIView,UITableViewDelegate,UITableViewDataSource {
         backGroundView = UIView.init(frame: CGRectMake(-(SCREEN_WIDTH/2 - self.frame.size.width/2), -(SCREEN_HEIGHT/2 - self.frame.size.height/2), SCREEN_WIDTH, SCREEN_HEIGHT))
         backGroundView.backgroundColor = UIColor(hexString: "000000", alpha: 0.8)
         
-        
         self.clipsToBounds = false
         self.addSubview(backGroundView)
     }
@@ -204,11 +203,8 @@ class MoveToMyFavoriteView: UIView,UITableViewDelegate,UITableViewDataSource {
                 NSUserDefaults.standardUserDefaults().setObject(false, forKey:productID!)
                 closeMyView()
             }
-            
         }
     }
-    
-    
     
     func closeMyView()
     {
@@ -223,7 +219,6 @@ class MoveToMyFavoriteView: UIView,UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    
     func showWithAnimation(productID:String)
     {
         
@@ -236,5 +231,4 @@ class MoveToMyFavoriteView: UIView,UITableViewDelegate,UITableViewDataSource {
             self.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
         }
     }
-
 }
