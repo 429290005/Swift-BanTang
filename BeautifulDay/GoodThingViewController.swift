@@ -16,7 +16,6 @@ class GoodThingViewController: UIViewController {
         self.title = "好物"
 
         TipView.showMessage("好物与首页 相似，故木有开发😄")
-        
     }
 
     override func didReceiveMemoryWarning() {
