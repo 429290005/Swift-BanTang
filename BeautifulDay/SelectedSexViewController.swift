@@ -25,8 +25,6 @@ class SelectedSexViewController: BaseViewController {
         buildUI()
     }
     
-    
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

@@ -21,8 +21,6 @@ class FriendViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         buildTableView()
     }
     
-    
-    
     func buildTableView() {
         showTableView = UITableView(frame: CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64), style: .Plain)
         showTableView?.delegate = self
@@ -30,9 +28,6 @@ class FriendViewController: BaseViewController,UITableViewDelegate,UITableViewDa
         showTableView?.separatorStyle = .None
         view.addSubview(showTableView!)
     }
-    
-    
-    
     
     //MARK: UITableviewDelegate uitableviewDataSource
     

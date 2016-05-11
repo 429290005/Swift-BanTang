@@ -135,7 +135,6 @@ class SettingViewController: BaseViewController ,UITableViewDelegate,UITableView
         }
     }
     
-    
     //MARK: 弹出关于Boo
     func buildAboutMeView() {
         aboutView = UIView(frame: CGRectMake(0,0,SCREEN_WIDTH,SCREEN_HEIGHT))

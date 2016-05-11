@@ -38,7 +38,6 @@ class PersonCenterActivityCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func buildUI() {
         imgView = UIImageView(frame: CGRectMake(0, 0, 145, 145))
         imgView?.image = UIImage(named: "placeHolder")

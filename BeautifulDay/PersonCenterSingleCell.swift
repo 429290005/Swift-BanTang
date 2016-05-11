@@ -24,7 +24,6 @@ class PersonCenterSingleCell: UICollectionViewCell {
         }
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -53,6 +52,5 @@ class PersonCenterSingleCell: UICollectionViewCell {
         cell.model = model
         
         return cell
-
     }
 }
