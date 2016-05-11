@@ -21,9 +21,7 @@ class ShowMeCell: UICollectionViewCell {
                 //图片作 放大处理
                 imgView.image = ImageOperationCenter.ScaleImage(image!, goalWidth: 103)
             }
-            
         }
-        
     }
     
     override init(frame: CGRect) {
@@ -31,8 +29,6 @@ class ShowMeCell: UICollectionViewCell {
         buildUI()
     }
     
-    
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -49,8 +45,6 @@ class ShowMeCell: UICollectionViewCell {
         imgView.contentMode = .Center
         imgView.image = image
         contentView.addSubview(imgView)
-        
-        
     }
     
     static let cellID = "ShowMeCollectionViewCell"

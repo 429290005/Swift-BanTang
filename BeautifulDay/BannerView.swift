@@ -33,7 +33,6 @@ class BannerView: UIView,UIScrollViewDelegate {
     var timer = NSTimer()
     var pageControl = UIPageControl()
     
-    
     /// 好物
     var goodSomethingBtn = UIButton()
     /// 搜索
@@ -59,9 +58,6 @@ class BannerView: UIView,UIScrollViewDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
     
     //创建轮播图
     func createBannerView()
@@ -128,8 +124,6 @@ class BannerView: UIView,UIScrollViewDelegate {
         //NSDefaultRunLoopMode  会暂停timer
     }
     
-    
-    
     ///创建首页 四个 button
     func createFourButton()
     {
@@ -166,8 +160,6 @@ class BannerView: UIView,UIScrollViewDelegate {
         self.addSubview(signInBtn)
         
     }
-    
-    
     
     //MARK:timer计时  滚动视图
     
@@ -216,7 +208,6 @@ class BannerView: UIView,UIScrollViewDelegate {
         startTimer()
     }
     
-    
     //MARK:按钮点击方法处理
     
     func clickCenter(sender:UIButton)
@@ -236,8 +227,6 @@ class BannerView: UIView,UIScrollViewDelegate {
             break
         default :
             break
-            
         }
     }
-    
 }

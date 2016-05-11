@@ -118,7 +118,6 @@ class CreateFavoriteListViewController: BaseViewController,UITextViewDelegate {
             
             super.barOK()
         }
-        
     }
     
     //MARK:textViewDelegate

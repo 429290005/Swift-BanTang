@@ -39,8 +39,6 @@ class TitleView: UIScrollView {
         self.fontSize = fontSize
         
         self.createTitleLabel()
-        
-        
     }
     
     convenience init(titleArr:NSArray,normalColor:UIColor,highlightColor:UIColor,fontSize:CGFloat,textLength: CGFloat,buttonSpacing: CGFloat) {
@@ -87,7 +85,6 @@ class TitleView: UIScrollView {
         self.addSubview(indicator)
     }
 
-    
     //这个方法提供给 HomeViewController
      func setBottomView(btnIndex:Int)
     {
@@ -113,15 +110,12 @@ class TitleView: UIScrollView {
                 {
                     //将指示器所指向的标签分类放置到屏幕中间
                     let width = (btn?.frame.origin.x)! - self.contentOffset.x
-//                    print("当前btn到屏幕左边的距离 :\(width)")
                     //要移动的距离
                     let needMoveWidth = width - SCREEN_WIDTH/2
                     
                     self.setContentOffset(CGPointMake(self.contentOffset.x+needMoveWidth, 0), animated: true)
                 }
         }   }
-    
-
     
 //MARK:点击label 改变文字颜色，达到高亮效果
     func changeCateGory(sender:UIButton)
@@ -154,19 +148,5 @@ class TitleView: UIScrollView {
             //执行代理 返回点击btn的tag
             clickDelegate?.TitleViewClick(self, clickBtnIndex: clickIndex)
         }
-
-        
-        
-        }
-        
-        
-
-
-        
-        
-        
-
-    
-   
-
+    }
 }
