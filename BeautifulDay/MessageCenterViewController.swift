@@ -13,7 +13,6 @@ class MessageCenterViewController: UIViewController ,UITableViewDelegate,UITable
     private let tableViewData = ["新的粉丝","新的评论","新的喜欢","新的奖励","新的通知"]
     private let iconData = [UIImage(named: "Square_selected"),UIImage(named: "Square_selected"),UIImage(named: "Square_selected"),UIImage(named: "Square_selected"),UIImage(named: "Square_selected"),]
     
-    
     private var showTableView = UITableView()
     
     override func viewDidLoad() {
@@ -25,14 +24,11 @@ class MessageCenterViewController: UIViewController ,UITableViewDelegate,UITable
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "hasNewMessage", name: UserHasNewMessage, object: nil)
         
         buildTableView()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarItem.title = nil
-       
-       
     }
     
     //MARK: build tableview
@@ -77,22 +73,9 @@ class MessageCenterViewController: UIViewController ,UITableViewDelegate,UITable
         return cell
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //MARK: 接受 通知中心的通知
     func hasNewMessage(){
         print("收到通知了。")
         TipView.showMessage("您有新的消息。但是你看不见😜")
-        
-
     }
 }

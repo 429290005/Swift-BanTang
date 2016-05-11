@@ -19,12 +19,10 @@ enum ShowCollectionViewType {
     case PublishMode
 }
 
-
 class PersonCenterViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate , UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,
     TitleViewDelegate
 
 {
-
     private var topView = PersonCenterHeaderImageView()
     /// 头像
     private var headerImgView = UIImageView()
@@ -147,10 +145,6 @@ class PersonCenterViewController: UIViewController,UIImagePickerControllerDelega
                 let nav = BaseNavigationController(rootViewController: friendVC)
                 self.presentViewController(nav, animated: true, completion: nil)
                 break
-                
-              
-                
-                
             case FourButtonType.PointBUttonClick.rawValue:
                 TipView.showMessage("骚年你的积分还有 \(UserPoint)")
                 break
@@ -302,17 +296,12 @@ class PersonCenterViewController: UIViewController,UIImagePickerControllerDelega
         return reuseView
     }
     
-    
-    
-    
-    
     //MARK: imagePickViewControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             picker.dismissViewControllerAnimated(true, completion: nil)
             self.topView.headerImage = image
         }
-        
     }
     
     // collectionView 滚动时的 效果
@@ -342,5 +331,4 @@ class PersonCenterViewController: UIViewController,UIImagePickerControllerDelega
             }
         }
     }
-    
 }
