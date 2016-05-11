@@ -26,8 +26,7 @@ protocol BannerViewDelegate:NSObjectProtocol
 }
 
 class BannerView: UIView,UIScrollViewDelegate {
-
-
+    
     var showScrollView = UIScrollView()
     var bannerArray = NSMutableArray()
     
@@ -56,7 +55,7 @@ class BannerView: UIView,UIScrollViewDelegate {
         
         self.createFourButton()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -75,12 +74,12 @@ class BannerView: UIView,UIScrollViewDelegate {
         
         
         //利用 n+2 方法 index=0 前面加最后一张图片     index = count-1 后加第一张图片
-            //最后一张放到index = 0的位置
+        //最后一张放到index = 0的位置
         let lastImageView = UIImageView.init(frame: CGRectMake(0, 0, SCREEN_WIDTH, 324/2))
         let bannerModel = self.bannerArray[bannerArray.count-1] as! DailyBannerModel
         lastImageView.sd_setImageWithURL(NSURL(string: bannerModel.imageUrl), placeholderImage: UIImage(named: "placeHolder.jpg"))
         showScrollView.addSubview(lastImageView)
-            //第一张放到 index = count 的位置
+        //第一张放到 index = count 的位置
         let firstImageView = UIImageView.init(frame: CGRectMake(CGFloat(bannerArray.count+1)*SCREEN_WIDTH , 0, SCREEN_WIDTH, 324/2))
         let model = self.bannerArray[0] as! DailyBannerModel
         firstImageView.sd_setImageWithURL(NSURL(string: model.imageUrl), placeholderImage: UIImage(named: "placeHolder.jpg"))
@@ -95,11 +94,11 @@ class BannerView: UIView,UIScrollViewDelegate {
             
             imageView.sd_setImageWithURL(NSURL(string: bannerModel.imageUrl), placeholderImage:UIImage(named: "placeHolder.jpg"))
             showScrollView.addSubview(imageView)
-           
+            
         }
         showScrollView.contentSize = CGSizeMake(SCREEN_WIDTH*CGFloat(bannerArray.count+2), 0)
         showScrollView.contentOffset = CGPointMake(SCREEN_WIDTH, 0)
-
+        
         self.addSubview(showScrollView)
         
         
@@ -134,42 +133,45 @@ class BannerView: UIView,UIScrollViewDelegate {
     ///创建首页 四个 button
     func createFourButton()
     {
+        //MARK:为了解决适配问题，这里需要计算一下间距
+        let margin = (SCREEN_WIDTH - 45 * 4 - 24*2)/3
+        
         //好物 button
         goodSomethingBtn = UIButton.init(frame: CGRectMake(24, 175, 45, 70))
         goodSomethingBtn.tag = 1
         goodSomethingBtn.setImage(UIImage(named: "GoodSomething"), forState: .Normal)
-        goodSomethingBtn.setImage(UIImage(named: "GoodSomething"), forState: .Highlighted)
+        goodSomethingBtn.adjustsImageWhenHighlighted = false;
         goodSomethingBtn.addTarget(self, action: "clickCenter:", forControlEvents: .TouchUpInside)
         self.addSubview(goodSomethingBtn)
         //搜索button
-        searchBtn = UIButton.init(frame: CGRectMake(24+45*1+32*1, 175, 45, 70))
+        searchBtn = UIButton.init(frame: CGRectMake(24+45*1+margin*1, 175, 45, 70))
         searchBtn.tag = 2
         searchBtn.setImage(UIImage(named: "searchLarge"), forState: .Normal)
-        searchBtn.setImage(UIImage(named: "searchLarge"), forState: .Highlighted)
+        searchBtn.adjustsImageWhenHighlighted = false;
         searchBtn.addTarget(self, action: "clickCenter:", forControlEvents: .TouchUpInside)
         self.addSubview(searchBtn)
         //种草 button
-        plantGrassBtn = UIButton.init(frame: CGRectMake(24+45*2+32*2, 175, 45, 70))
+        plantGrassBtn = UIButton.init(frame: CGRectMake(24+45*2+margin*2, 175, 45, 70))
         plantGrassBtn.tag = 3
         plantGrassBtn.setImage(UIImage(named: "PlantingGrass"), forState: .Normal)
-        plantGrassBtn.setImage(UIImage(named: "PlantingGrass"), forState: .Highlighted)
+        plantGrassBtn.adjustsImageWhenHighlighted = false
         plantGrassBtn.addTarget(self, action: "clickCenter:", forControlEvents: .TouchUpInside)
         self.addSubview(plantGrassBtn)
         //签到 button
-        signInBtn = UIButton.init(frame: CGRectMake(24+45*3+32*3, 175, 45, 70))
+        signInBtn = UIButton.init(frame: CGRectMake(24+45*3+margin*3, 175, 45, 70))
         signInBtn.tag = 4
         signInBtn.setImage(UIImage(named: "SignIn"), forState: .Normal)
-        signInBtn.setImage(UIImage(named: "SignIn"), forState: .Highlighted)
+        signInBtn.adjustsImageWhenHighlighted = false
         signInBtn.addTarget(self, action: "clickCenter:", forControlEvents: .TouchUpInside)
         self.addSubview(signInBtn)
-
+        
     }
     
     
     
     //MARK:timer计时  滚动视图
-
-        //timer 方法 ->改变pageControl.currentPage
+    
+    //timer 方法 ->改变pageControl.currentPage
     func autoMaticScroll()
     {
         //滑动到最后一张
@@ -188,10 +190,10 @@ class BannerView: UIView,UIScrollViewDelegate {
     
     //MARK:scrollviewDelegate
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        //计算页数 
+        //计算页数
         let page = Int( (showScrollView.contentOffset.x-SCREEN_WIDTH) / SCREEN_WIDTH)
         pageControl.currentPage = page
-    //如果滑到 第一张
+        //如果滑到 第一张
         if(showScrollView.contentOffset.x == 0)
         {
             showScrollView.contentOffset = CGPointMake(CGFloat(bannerArray.count)*SCREEN_WIDTH, 0)
@@ -205,7 +207,7 @@ class BannerView: UIView,UIScrollViewDelegate {
         
     }
     
-    //抓住图片的时候 停止时钟 
+    //抓住图片的时候 停止时钟
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         timer.invalidate()
     }
@@ -215,7 +217,7 @@ class BannerView: UIView,UIScrollViewDelegate {
     }
     
     
-//MARK:按钮点击方法处理
+    //MARK:按钮点击方法处理
     
     func clickCenter(sender:UIButton)
     {
