@@ -35,6 +35,10 @@ class ShowMeViewController: BaseViewController ,UICollectionViewDelegate,UIColle
         if author == .Restricted || author == .Denied || author == .NotDetermined{
             //没有权限 提示用户在设置中获取权限
             TipView.showMessage("都没有权限，你瞅啥~😂,去设置给我权限啊",duration: 4.0)
+            //请求权限
+            PHPhotoLibrary.requestAuthorization({ (status) -> Void in
+                
+            })
             
         }else if author == .Authorized{
             // 列出所有的智能相册
