@@ -93,7 +93,7 @@ class PlantGrassViewController: BaseViewController ,UICollectionViewDelegate,UIC
     
     //flowLayout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(300, 228/2)
+        return CGSizeMake(SCREEN_WIDTH - 30, 228/2)
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
     {

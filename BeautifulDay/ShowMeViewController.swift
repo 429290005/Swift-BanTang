@@ -12,14 +12,17 @@ import Photos
 
 class ShowMeViewController: BaseViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
    
-    //当前 collectionView 用到的 PHAssetCollection
+    // 当前 collectionView 用到的 PHAssetCollection
     private var currentPhotoData: PHFetchResult?
     
-    //相机管理类
+    // 相机管理类
     private var imageManger: PHCachingImageManager?
     
-    //展示图片 collectionView
+    // 展示图片 collectionView
     private var showCollectionView: UICollectionView?
+    
+    /// 加载图片的一些参数 PHImageRequestOptions
+    private var imageRequestOptions: PHImageRequestOptions?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +47,15 @@ class ShowMeViewController: BaseViewController ,UICollectionViewDelegate,UIColle
             // 列出所有的智能相册
             let smartAlbums = PHAssetCollection.fetchAssetCollectionsWithType(PHAssetCollectionType.SmartAlbum, subtype: PHAssetCollectionSubtype.AlbumRegular, options: nil)
             imageManger = PHCachingImageManager()
+            
             let options = PHFetchOptions()
             options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
             
+            imageRequestOptions = PHImageRequestOptions()
+            /// 加载高质量的图片
+            imageRequestOptions?.deliveryMode = .HighQualityFormat
+            imageRequestOptions?.version = .Original
+
             //currentPhotoData 只会获取到 '相机胶卷'中的照片
             for var i = 0 ; i < smartAlbums.count ; i++ {
                 print(smartAlbums[i].localizedTitle)
@@ -92,7 +101,7 @@ class ShowMeViewController: BaseViewController ,UICollectionViewDelegate,UIColle
         if indexPath.row != 0 {
             let assets = currentPhotoData![indexPath.row - 1]
             
-            imageManger!.requestImageForAsset(assets as! PHAsset, targetSize: CGSizeMake(103, 103), contentMode: .AspectFit, options: nil) { (image, array) -> Void in
+            imageManger!.requestImageForAsset(assets as! PHAsset, targetSize: CGSizeMake(103, 103), contentMode: .AspectFit, options: imageRequestOptions) { (image, array) -> Void in
                 cell.image = image
             }
         }else {
