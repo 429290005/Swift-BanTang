@@ -17,7 +17,6 @@ enum TableViewMode{
     case UserRecommendMode
 }
 
-
 class ListDetailViewController: UIViewController,
     SegmentViewDelegate,
     ListDetailClickToProductDelegate,
@@ -83,20 +82,16 @@ class ListDetailViewController: UIViewController,
         //获取model数据
         loadData()
         
-        
         if(listModel != nil)
         {
             buildHeadView()
-            
-//            buildSegmentView()
-            
+        
             buildTableView()
         }else{
             TipView.showMessage("这个页面没有抓包😄")
             navigationController?.popViewControllerAnimated(true)
         }
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -213,11 +208,7 @@ class ListDetailViewController: UIViewController,
         
         
         UMSocialSnsService.presentSnsIconSheetView(self, appKey: nil, shareText: "贾宸穆 umsocialShare test \(shareURl!)", shareImage: shareImage, shareToSnsNames: [UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline], delegate: nil)
-        
-    
     }
-
-
     
 //MARK:创建headView ,categoey
     func buildHeadView()
@@ -248,7 +239,6 @@ class ListDetailViewController: UIViewController,
         banTangView.reloadData()
     }
     
-    
 //MARK:创建tableview
     func buildTableView()
     {
@@ -266,8 +256,6 @@ class ListDetailViewController: UIViewController,
 //MARK: UITableViewDelegate,UITableViewDataSource
 extension ListDetailViewController:UITableViewDelegate,UITableViewDataSource
 {
-    
-
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if(tableViewMode == .BanTangGoodSelectMode)
         {
@@ -292,8 +280,6 @@ extension ListDetailViewController:UITableViewDelegate,UITableViewDataSource
 
         return 1
     }
-    
-    
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
