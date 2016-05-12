@@ -20,7 +20,6 @@ class PersonCenterSingleCell: UICollectionViewCell {
                 imgView?.sd_setImageWithURL(NSURL(string: (model?.imageUrl)!), placeholderImage: UIImage(named: "placeHolder"))
                 likesCountLabel?.text = "\((model?.likeNumbers)!)喜欢"
             }
-            
         }
     }
     
