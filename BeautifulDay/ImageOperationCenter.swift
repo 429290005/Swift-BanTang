@@ -73,9 +73,7 @@ class ImageOperationCenter: NSObject {
         
         //开启上下文
         let sizeImage = image.size
-        
-        
-        
+    
         UIGraphicsBeginImageContextWithOptions(sizeImage, false, 0.0)
         
         let ctx = UIGraphicsGetCurrentContext()

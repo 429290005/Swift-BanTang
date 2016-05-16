@@ -105,7 +105,6 @@ class TitleView: UIScrollView {
             }) { (finished:Bool) -> Void in
                 self.currentPage = btnIndex
                 
-               
                 if( btnIndex > 1 && btnIndex < 11)
                 {
                     //将指示器所指向的标签分类放置到屏幕中间
