@@ -106,7 +106,9 @@ class SquareViewController: UIViewController,SegmentViewDelegate ,
    
     //MARK: build titleView
     func buildTitleView() {
-        let titleView = TitleView(titleArr: NSArray(objects: "热门推荐","深夜食堂","变美神器","一种生活"), normalColor: MainTitleColor, highlightColor: CustomBarTintColor, fontSize: 15.0,textLength: 4.0,buttonSpacing: 20.0)
+        //解决适配问题： 计算button间距
+        let margin = (SCREEN_WIDTH - 24 - 4 * 15 * 4) / 3
+        let titleView = TitleView(titleArr: NSArray(objects: "热门推荐","深夜食堂","变美神器","一种生活"), normalColor: MainTitleColor, highlightColor: CustomBarTintColor, fontSize: 15.0,textLength: 4.0,buttonSpacing: margin )
         titleView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 45)
         titleView.clickDelegate = self
         view.addSubview(titleView)
@@ -131,8 +133,6 @@ class SquareViewController: UIViewController,SegmentViewDelegate ,
         showCollectionView!.registerClass(SquareCategoryCell.self, forCellWithReuseIdentifier: "SquareCellIdentifier")
         showCollectionView!.delegate = self
         showCollectionView!.dataSource = self
-        
-//        view.addSubview(showCollectionView!)
     }
     // uicollectionViewDelegate UICollectionViewFlowLayout
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -170,7 +170,7 @@ class SquareViewController: UIViewController,SegmentViewDelegate ,
         if collectionView == showCollectionView {
             return CGSizeMake(50, 170/2)
         }
-        return CGSizeMake(300, 228/2)
+        return CGSizeMake(SCREEN_WIDTH - 30, 228/2)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
