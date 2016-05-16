@@ -96,6 +96,9 @@ class PersonCenterHeaderImageView: UIView {
         signLabel.frame = CGRectMake(SCREEN_WIDTH/2 - signLabel.frame.width/2, CGRectGetMaxY(nameLabel.frame) + 13, signLabel.frame.width, signLabel.frame.height)
         addSubview(signLabel)
         
+        
+        //计算label间距 解决适配问题
+        let margin = (SCREEN_WIDTH - 3 * 50 - 64) / 2
         //成就
         achievementLabel = DoubleLabel(TopTitle: "99", BottomTitle: "成就")
         achievementLabel?.frame = CGRectMake(32, CGRectGetMaxY(signLabel.frame) + 15, 50, 45)
@@ -103,12 +106,12 @@ class PersonCenterHeaderImageView: UIView {
         
         //上精选
         goodSelectedLabel = DoubleLabel(TopTitle: "998", BottomTitle: "上精选")
-        goodSelectedLabel?.frame = CGRectMake(CGRectGetMaxX(achievementLabel!.frame) + 55, achievementLabel!.frame.origin.y, 50, 45)
+        goodSelectedLabel?.frame = CGRectMake(CGRectGetMaxX(achievementLabel!.frame) + margin, achievementLabel!.frame.origin.y, 50, 45)
         addSubview(goodSelectedLabel!)
         
         //赞
         praiseLabel = DoubleLabel(TopTitle: "1998", BottomTitle: "打赏")
-        praiseLabel?.frame = CGRectMake(CGRectGetMaxX(goodSelectedLabel!.frame) + 55, goodSelectedLabel!.frame.origin.y, 50, 45)
+        praiseLabel?.frame = CGRectMake(CGRectGetMaxX(goodSelectedLabel!.frame) + margin, goodSelectedLabel!.frame.origin.y, 50, 45)
         addSubview(praiseLabel!)
         
         //设置按钮

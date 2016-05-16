@@ -163,7 +163,9 @@ class PersonCenterViewController: UIViewController,UIImagePickerControllerDelega
         
         
         //分类 titleView
-        titleView = TitleView(titleArr: NSArray(objects: "单品","清单","互动","发布"), normalColor: MainTitleColor, highlightColor: CustomBarTintColor, fontSize: 15.0, textLength: 2, buttonSpacing: 114/2)
+            //- 计算按钮间距
+        let margin = (SCREEN_WIDTH - 40 - 4 * 30) / 3
+        titleView = TitleView(titleArr: NSArray(objects: "单品","清单","互动","发布"), normalColor: MainTitleColor, highlightColor: CustomBarTintColor, fontSize: 15.0, textLength: 2, buttonSpacing: margin)
         titleView?.frame = CGRectMake(0, CGRectGetMaxY(topView.frame) + 111, SCREEN_WIDTH, 45)
         titleView?.clickDelegate = self
         collectionHeadView.addSubview(titleView!)
@@ -280,7 +282,12 @@ class PersonCenterViewController: UIViewController,UIImagePickerControllerDelega
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         if collectionViewMode == .SingleMode {
-            return UIEdgeInsetsMake(10, 10, 10, 10)
+            let margin = (SCREEN_WIDTH - 2 * 145) / 4
+            return UIEdgeInsetsMake(10, margin, 10, margin)
+        }
+        if collectionViewMode == .ActivityMode {
+            let margin = (SCREEN_WIDTH - 2 * 145) / 4
+            return UIEdgeInsetsMake(10, margin, 10, margin)
         }
         return UIEdgeInsetsZero
     }

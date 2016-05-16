@@ -36,14 +36,18 @@ class FourButtonView: UIView {
     }
     
     func buildUI() {
+        
         var orginX = CGFloat(112/5)
+        //解决适配问题： 计算按钮间距
+        let margin = (SCREEN_WIDTH - orginX * 2 - 4 * 54) / 3
+        
         orderBtn = UIButton(frame: CGRectMake(orginX,18,52,80))
         orderBtn?.tag = FourButtonType.OrderButtonClick.rawValue
         orderBtn?.addTarget(self, action: "clickCenter:", forControlEvents: .TouchUpInside)
         orderBtn?.setImage(UIImage(named: "button_order"), forState: .Normal)
         orderBtn?.setImage(UIImage(named: "button_order"), forState: .Highlighted)
         addSubview(orderBtn!)
-        orginX += 52+22
+        orginX += 52 + margin
     
         friendBtn = UIButton(frame: CGRectMake(orginX,18, 52, 80))
         friendBtn?.tag = FourButtonType.FriedButtonClick.rawValue
@@ -51,7 +55,7 @@ class FourButtonView: UIView {
         friendBtn?.setImage(UIImage(named: "button_friend"), forState: .Normal)
         friendBtn?.setImage(UIImage(named: "button_friend"), forState: .Highlighted)
         addSubview(friendBtn!)
-        orginX += 52+22
+        orginX += 52 + margin
         
         pointBtn = UIButton(frame: CGRectMake(orginX,18,52,80))
         pointBtn?.tag = FourButtonType.PointBUttonClick.rawValue
@@ -59,7 +63,7 @@ class FourButtonView: UIView {
         pointBtn?.setImage(UIImage(named: "button_point"), forState: .Normal)
         pointBtn?.setImage(UIImage(named: "button_point"), forState: .Highlighted)
         addSubview(pointBtn!)
-        orginX += 52+22
+        orginX += 52 + margin
         
         teamBtn = UIButton(frame: CGRectMake(orginX,18,52,80))
         teamBtn?.tag = FourButtonType.TeamButtonClick.rawValue
