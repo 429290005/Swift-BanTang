@@ -11,15 +11,6 @@
 ####Update 1.0.1 小更新
 ######首页修改为渐变效果 ，ShowMeController打开相册不在崩溃
 
-***
-##收到有童鞋反应说，会遇到这样的Bug导致无法运行
-![tmp788532b0.png](http://upload-images.jianshu.io/upload_images/1299512-767663cc96358060.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-Tips：由于GitHub上传的问题，解决办法如下：
-
-
-![tmp44a0f1ff.png](http://upload-images.jianshu.io/upload_images/1299512-ff192623db0d0fd8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 ##因为GItHub的问题，我在百度云网盘放了一份代码，可以运行，也可以去百度云网盘下载哦
 [点击去ManoBoo的百度云](http://pan.baidu.com/s/1boio8Tx)
 
