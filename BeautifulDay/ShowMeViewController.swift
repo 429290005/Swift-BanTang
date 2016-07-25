@@ -58,7 +58,7 @@ class ShowMeViewController: BaseViewController ,UICollectionViewDelegate,UIColle
 
             //currentPhotoData 只会获取到 '相机胶卷'中的照片
             for var i = 0 ; i < smartAlbums.count ; i++ {
-                print(smartAlbums[i].localizedTitle)
+//                print(smartAlbums[i].localizedTitle)
                 if smartAlbums[i].localizedTitle == "相机胶卷" || smartAlbums[i].localizedTitle == "Camera Roll"{
                     currentPhotoData = PHAsset.fetchAssetsInAssetCollection(smartAlbums[i] as! PHAssetCollection , options: options)
                 }

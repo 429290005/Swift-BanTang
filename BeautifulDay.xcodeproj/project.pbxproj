@@ -117,7 +117,6 @@
 		46E2F7AF1C5F539A00E16D85 /* SingleGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E2F7AE1C5F539A00E16D85 /* SingleGoodsViewController.swift */; };
 		46E2F7B11C5F60E200E16D85 /* SingleGoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E2F7B01C5F60E200E16D85 /* SingleGoodsCell.swift */; };
 		46E2F7B41C5F62DD00E16D85 /* 底妆 in Resources */ = {isa = PBXBuildFile; fileRef = 46E2F7B31C5F62DD00E16D85 /* 底妆 */; };
-		46E2F7BC1C603CC000E16D85 /* .DS_Store in Resources */ = {isa = PBXBuildFile; fileRef = 46E2F7B61C603CC000E16D85 /* .DS_Store */; };
 		46E2F7BD1C603CC000E16D85 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E2F7B71C603CC000E16D85 /* libWeChatSDK.a */; };
 		46E2F7BE1C603CC000E16D85 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 46E2F7B81C603CC000E16D85 /* read_me.txt */; };
 		46E2F7C01C603D2100E16D85 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E2F7BF1C603D2100E16D85 /* libsqlite3.0.tbd */; };
@@ -1219,7 +1218,6 @@
 				465EFC001C78539900D9E348 /* 深夜图书馆 in Resources */,
 				46688FBC1C48967700D6EE30 /* placeHolder.jpg in Resources */,
 				46E6D06E1C463AAE00C76637 /* LaunchScreen.storyboard in Resources */,
-				46E2F7BC1C603CC000E16D85 /* .DS_Store in Resources */,
 				46AB26781C58AF210095353E /* 用户推荐 in Resources */,
 				46E2F7CF1C60A80200E16D85 /* stylenand 打底霜 in Resources */,
 				46E6D06B1C463AAE00C76637 /* Assets.xcassets in Resources */,
@@ -1495,7 +1493,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/UMSocial_Sdk_4.4",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jiachenmu.beautyDAydd;
+				PRODUCT_BUNDLE_IDENTIFIER = jiachenmu.bantang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulDay/BeautifulDay-Bridging-Header.h";
@@ -1519,7 +1517,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/UMSocial_Sdk_4.4",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jiachenmu.beautyDAydd;
+				PRODUCT_BUNDLE_IDENTIFIER = jiachenmu.bantang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulDay/BeautifulDay-Bridging-Header.h";
