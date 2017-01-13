@@ -25,7 +25,7 @@ class ImageOperationCenter: NSObject {
         
         let result = filter?.valueForKey(kCIOutputImageKey) as! CIImage
         let outImage = context.createCGImage(result, fromRect: result.extent)
-        image = UIImage(CGImage: outImage)
+        image = UIImage(CGImage: outImage!)
         
         imgView.image = image
     }
@@ -64,7 +64,7 @@ class ImageOperationCenter: NSObject {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return newImage
+        return newImage!
     }
     
     // 图片大小是 60 * 60 的  不用再次修改大小
@@ -80,12 +80,12 @@ class ImageOperationCenter: NSObject {
         
         //画边框  大圆
         borderColor.set()
-        CGContextAddArc(ctx, image.size.width/2, image.size.height/2, image.size.height/2, 0, CGFloat(M_PI * 2.0) , 0)
-        CGContextFillPath(ctx)
+        CGContextAddArc(ctx!, image.size.width/2, image.size.height/2, image.size.height/2, 0, CGFloat(M_PI * 2.0) , 0)
+        CGContextFillPath(ctx!)
         
         //画小圆
-        CGContextAddArc(ctx, image.size.width/2, image.size.width/2, image.size.width/2 - borderWidth, 0, CGFloat(M_PI * 2.0), 0)
-        CGContextClip(ctx)
+        CGContextAddArc(ctx!, image.size.width/2, image.size.width/2, image.size.width/2 - borderWidth, 0, CGFloat(M_PI * 2.0), 0)
+        CGContextClip(ctx!)
         
         //画图
         image.drawInRect(CGRectMake(borderWidth, borderWidth, image.size.width, image.size.height))
@@ -96,7 +96,7 @@ class ImageOperationCenter: NSObject {
         //结束上下文
         UIGraphicsEndImageContext()
         
-        return newImage
+        return newImage!
     }
     
     // 从相机拍照  后修改
@@ -112,12 +112,12 @@ class ImageOperationCenter: NSObject {
         
         //画边框  大圆
         borderColor.set()
-        CGContextAddArc(ctx, image.size.width/2, image.size.height/2, 30, 0, CGFloat(M_PI * 2.0) , 0)
-        CGContextFillPath(ctx)
+        CGContextAddArc(ctx!, image.size.width/2, image.size.height/2, 30, 0, CGFloat(M_PI * 2.0) , 0)
+        CGContextFillPath(ctx!)
         
         //画小圆
-        CGContextAddArc(ctx, image.size.width/2, image.size.width/2, 30 - borderWidth, 0, CGFloat(M_PI * 2.0), 0)
-        CGContextClip(ctx)
+        CGContextAddArc(ctx!, image.size.width/2, image.size.width/2, 30 - borderWidth, 0, CGFloat(M_PI * 2.0), 0)
+        CGContextClip(ctx!)
         
         //画图
         image.drawInRect(CGRectMake(30+borderWidth, 30+borderWidth, 60, 60))
@@ -128,7 +128,7 @@ class ImageOperationCenter: NSObject {
         //结束上下文
         UIGraphicsEndImageContext()
         
-        return newImage
+        return newImage!
     
     
     }
